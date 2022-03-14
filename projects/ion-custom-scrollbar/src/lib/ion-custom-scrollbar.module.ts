@@ -1,12 +1,9 @@
-import { NgModule } from '@angular/core';
-import { ScrollbarDirective } from './scrollbar.directive';
-
-
+import { NgModule } from "@angular/core";
+import { ScrollbarDirective } from "./scrollbar.directive";
 
 @NgModule({
   declarations: [ScrollbarDirective],
-  imports: [
-  ],
-  exports: [ScrollbarDirective]
+  imports: [],
+  exports: [ScrollbarDirective],
 })
-export class IonCustomScrollbarModule { }
+export class IonCustomScrollbarModule {}
