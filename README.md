@@ -1,4 +1,4 @@
-# IonCustomScrollbar
+# ion-custom-scrollbar
 
 ## Installation
 
