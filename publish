@@ -1,0 +1,9 @@
+#!/bin/bash
+# install dependencies
+test -d node_modules || npm install
+# build
+npm run lib-build
+# enter 'dist'
+cd dist/ion-custom-scrollbar
+# publish
+npm publish
