@@ -3,13 +3,14 @@
 ## Installation
 
 ```sh
+# on project root
 npm i @camdh/ion-custom-scrollbar
 ```
-npm page: https://www.npmjs.com/package/@camdh/ion-custom-scrollbar
+- npm page: https://www.npmjs.com/package/@camdh/ion-custom-scrollbar
 
 ## Usage
 
-Import the module on top of your lazy loaded module and add it to the 'imports' array inside NgModule.
+Import the module on top of your lazy loaded module and add it to the `imports` array on `NgModule`.
 ```js
 import { IonCustomScrollbarModule } from 'ion-custom-scrollbar'
 
@@ -36,7 +37,7 @@ You can pass a configuration object on `ion-content` using the `scrollbar` attri
 | all        | boolean | apply style on mobile also | false         | 
 
 ## Example
-```js
+```html
 <ion-content scrollbar="{width:12,trackHover:0}">
    ...
 </ion-content>
