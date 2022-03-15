@@ -2,7 +2,10 @@
 
 ## Installation
 
-Run `npm i ion-custom-scrollbar`
+```sh
+npm i @camdh/ion-custom-scrollbar
+```
+npm page: https://www.npmjs.com/package/@camdh/ion-custom-scrollbar
 
 ## Usage
 
