@@ -21,7 +21,7 @@ import { IonCustomScrollbarModule } from 'ion-custom-scrollbar'
 
 ## Configuration
 
-You can pass a configuration object on `ion-content` using the `scrollbar` parameter.
+You can pass a configuration object on `ion-content` using the `scrollbar` attribute.
 
 | key        | type    | description                | default value |
 |------------|---------|----------------------------|---------------|
