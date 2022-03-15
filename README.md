@@ -39,3 +39,9 @@ You can pass a configuration object on `ion-content` using the `scrollbar` param
 </ion-content>
 ```
 
+## Publish
+```sh
+# you just need to run the script
+./publish
+```
+
