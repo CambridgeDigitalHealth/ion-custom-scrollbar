@@ -46,10 +46,10 @@ ${!this.all ? '}' : ''}`;
 }
 
 @Directive({
-  selector: '[scrollbar]',
+  selector: 'ion-content',
 })
 export class ScrollbarDirective implements OnInit {
-  @Input() scrollbar: ScrollOptions;
+  @Input() scrollbar: ScrollOptions | null | 'null';
   hostElement: HTMLElement;
 
   constructor(public elementRef: ElementRef) {}
@@ -61,6 +61,13 @@ export class ScrollbarDirective implements OnInit {
       this.hostElement.tagName &&
       this.hostElement.tagName == 'ION-CONTENT'
     ) {
+      // enabled by default; disabled if scrollbar="null"
+      if (
+        typeof this.scrollbar !== 'undefined' &&
+        (this.scrollbar === null || this.scrollbar === 'null')
+      ) {
+        return;
+      }
       const el = document.createElement('style');
       this.scrollbar = new ScrollOptions(this.scrollbar);
       el.innerText = this.scrollbar.styleStr;
