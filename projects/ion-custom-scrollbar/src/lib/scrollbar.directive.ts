@@ -46,7 +46,7 @@ ${!this.all ? '}' : ''}`;
 }
 
 @Directive({
-  selector: 'ion-content',
+  selector: 'ion-app, ion-content',
 })
 export class ScrollbarDirective implements OnInit {
   @Input() scrollbar: ScrollOptions | null | 'null';
@@ -55,23 +55,27 @@ export class ScrollbarDirective implements OnInit {
   constructor(public elementRef: ElementRef) {}
 
   ngOnInit() {
-    this.hostElement = this.elementRef.nativeElement;
+    // enabled by default; disabled if scrollbar="null"
     if (
-      this.hostElement &&
-      this.hostElement.tagName &&
-      this.hostElement.tagName == 'ION-CONTENT'
+      typeof this.scrollbar !== 'undefined' &&
+      (this.scrollbar === null || this.scrollbar === 'null')
     ) {
-      // enabled by default; disabled if scrollbar="null"
-      if (
-        typeof this.scrollbar !== 'undefined' &&
-        (this.scrollbar === null || this.scrollbar === 'null')
-      ) {
-        return;
+      return;
+    }
+    // create style element
+    const el = document.createElement('style');
+    this.scrollbar = new ScrollOptions(this.scrollbar);
+    el.innerText = this.scrollbar.styleStr;
+    // append
+    this.hostElement = this.elementRef.nativeElement;
+    if (this.hostElement && this.hostElement.tagName) {
+      if (this.hostElement.tagName == 'ION-CONTENT') {
+        // append style to ion-content's shadow-root
+        this.hostElement.shadowRoot.appendChild(el);
+      } else {
+        // append style to any component that gets selected
+        this.hostElement.appendChild(el);
       }
-      const el = document.createElement('style');
-      this.scrollbar = new ScrollOptions(this.scrollbar);
-      el.innerText = this.scrollbar.styleStr;
-      this.hostElement.shadowRoot.appendChild(el);
     }
   }
 }
