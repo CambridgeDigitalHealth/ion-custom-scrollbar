@@ -3,7 +3,9 @@
 test -d node_modules || npm install
 # build
 npm run lib-build
-# enter 'dist'
+# copy readme
+cp README.md dist/ion-custom-scrollbar/README.md
+# # enter 'dist'
 cd dist/ion-custom-scrollbar
-# publish
+# # publish
 npm publish

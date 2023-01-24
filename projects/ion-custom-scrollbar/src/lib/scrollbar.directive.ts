@@ -22,26 +22,45 @@ class ScrollOptions {
     }
   }
   get styleStr() {
-    return `${!this.all ? '@media(pointer: fine) {' : ''}
-::-webkit-scrollbar {
-  width: ${this.width}px;
+    return `
+@media (prefers-color-scheme: dark) ${!this.all ? 'and (pointer: fine)' : ''} {
+  ::-webkit-scrollbar {
+    width: ${this.width}px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(255,255,255,${this.track});
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: rgba(255,255,255,${this.trackHover});
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,${this.thumb});
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,${this.thumbHover});
+  }
 }
-::-webkit-scrollbar-track {
-  background: rgba(255,255,255,${this.track});
-}
-::-webkit-scrollbar-track:hover {
-  background: rgba(255,255,255,${this.trackHover});
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,${this.thumb});
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,${this.thumbHover});
+@media (prefers-color-scheme: light) ${!this.all ? 'and (pointer: fine)' : ''} {
+  ::-webkit-scrollbar {
+    width: ${this.width}px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(0,0,0,${this.track});
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: rgba(0,0,0,${this.trackHover});
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,${this.thumb});
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,${this.thumbHover});
+  }
 }
 .inner-scroll {
   scrollbar-width: thin;
 }
-${!this.all ? '}' : ''}`;
+`;
   }
 }
 

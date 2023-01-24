@@ -38,7 +38,7 @@ You can pass a configuration object on `ion-content` using the `scrollbar` attri
 
 ## Example
 ```html
-<ion-content scrollbar="{width:12,trackHover:0}">
+<ion-content [scrollbar]="{width:12,trackHover:0}">
    ...
 </ion-content>
 ```

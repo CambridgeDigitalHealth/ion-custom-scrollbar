@@ -1,6 +1,6 @@
 {
   "name": "@camdh/ion-custom-scrollbar",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "peerDependencies": {
     "@angular/common": ">=9.0.1",
     "@angular/core": ">=9.0.1"
